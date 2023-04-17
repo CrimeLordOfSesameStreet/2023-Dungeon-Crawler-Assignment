@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 40.0f;
     private bool isMoving;
 
-    
     void Start()
     {
         this.rb = this.GetComponent<Rigidbody>();
@@ -50,7 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             this.rb.velocity = Vector3.zero;
             this.rb.Sleep();
-            //this.rb.angularVelocity = Vector3.zero;
+           
         }
     }
 
@@ -83,7 +82,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow) && this.isMoving == false)
