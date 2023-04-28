@@ -45,7 +45,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("center"))
+        if (other.gameObject.CompareTag("center") && this.isMoving==true)
+
         {
             this.rb.velocity = Vector3.zero;
             this.rb.Sleep();
@@ -55,8 +56,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Exit") && MasterData.isExiting)
+ 
+        if (other.gameObject.CompareTag("Exit") && MasterData.isExiting && this.isMoving == true)
         {
+            print("hello trigger exi");
             if (other.gameObject == this.northExit)
             {
                 MasterData.whereDidIComeFrom = "north";
@@ -88,6 +91,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) && this.isMoving == false)
         {
             this.rb.AddForce(this.northExit.transform.position * movementSpeed);
+            print("hello");
             this.isMoving = true;
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow) && this.isMoving == false)
