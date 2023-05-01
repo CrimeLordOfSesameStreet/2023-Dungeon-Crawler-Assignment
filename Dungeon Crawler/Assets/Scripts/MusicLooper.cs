@@ -21,8 +21,4 @@ public class MusicLooper : MonoBehaviour
 
     }
 
-    void Update()
-    {
-
-    }
 }
